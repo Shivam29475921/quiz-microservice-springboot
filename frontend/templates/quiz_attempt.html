@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="quiz-wrapper">
+
+<div class="quiz-header">
+<h2>{{ quiz.title }}</h2>
+<div class="progress-bar"><div id="progress"></div></div>
+</div>
+
+<div class="quiz-body">
+
+<div class="palette">
+{% for q in quiz.questions %}
+<div class="palette-item" onclick="jumpTo({{ loop.index0 }})">
+{{ loop.index }}
+</div>
+{% endfor %}
+</div>
+
+<div class="question-area">
+
+<h3 id="question-title"></h3>
+<div id="options-container"></div>
+
+<div class="quiz-nav">
+<button onclick="prevQuestion()">Previous</button>
+<button onclick="nextQuestion()">Next</button>
+<button class="submit-btn" onclick="submitQuiz()">Submit</button>
+</div>
+
+</div>
+</div>
+</div>
+
+<script>
+const quiz = {{ quiz | tojson }};
+</script>
+<script src="/static/js/quiz.js"></script>
+
+{% endblock %}

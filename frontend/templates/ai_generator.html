@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="form-card">
+<h2>Generate Questions</h2>
+
+<form method="POST">
+
+<div class="input-group">
+<textarea name="text" required></textarea>
+<label>Enter Source Text</label>
+</div>
+
+<div class="input-group">
+<input name="category" required>
+<label>Category</label>
+</div>
+
+<div class="input-group">
+<input name="numQuestions" required>
+<label>No. of Questions</label>
+</div>
+
+<button class="submit-btn">Generate</button>
+
+</form>
+
+</div>
+
+{% endblock %}

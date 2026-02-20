@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="form-container">
+
+<div class="form-card">
+<h2>Create Quiz</h2>
+
+<form method="POST">
+
+<div class="input-group">
+<input name="quizTitle" required>
+<label>Quiz Title</label>
+</div>
+
+<div class="input-group">
+<input name="category" required>
+<label>Category</label>
+</div>
+
+<div class="input-group">
+<input type="number" name="numQuestions" required>
+<label>Number of Questions</label>
+</div>
+
+<button class="submit-btn">Create</button>
+
+</form>
+</div>
+</div>
+
+{% endblock %}

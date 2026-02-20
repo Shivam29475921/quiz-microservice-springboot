@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<div class="page-title">Available Quizzes</div>
+<div class="search-bar">
+
+    <form method="GET" action="/quiz-list" class="search-form">
+
+    <input
+        type="text"
+        name="query"
+        value="{{ query if query else '' }}"
+        placeholder="Search quizzes..."
+        class="search-input"
+    >
+
+    <div class="select-wrapper">
+        <select name="type" class="search-select">
+
+            <option value="title"
+                {% if search_type == "title" %}selected{% endif %}>
+                Title
+            </option>
+
+            <option value="category"
+                {% if search_type == "category" %}selected{% endif %}>
+                Category
+            </option>
+
+        </select>
+    </div>
+
+    <button class="search-btn">Search</button>
+
+    <a href="/quiz-list" class="clear-btn">Clear</a>
+
+</form>
+
+</div>
+<div class="quiz-list">
+{% if quizzes|length == 0 %}
+<p style="text-align:center; color:#94a3b8;">No quizzes found.</p>
+{% endif %}
+{% for quiz in quizzes %}
+<a href="/quiz/{{ quiz.id }}" class="quiz-card">
+    <div>
+        <h3>{{ quiz.quizTitle }}</h3>
+        <p>{{ quiz.category }}</p>
+    </div>
+    <div class="attempt-btn">Attempt →</div>
+</a>
+{% endfor %}
+
+</div>
+
+{% endblock %}

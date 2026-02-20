@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="page-title">Generated Questions</div>
+
+{% for q in questions %}
+<div class="card">
+<h3>{{ q.questionTitle }}</h3>
+<ul>
+{% for opt in q.options %}
+<li>{{ opt }}</li>
+{% endfor %}
+</ul>
+</div>
+{% endfor %}
+
+{% endblock %}
